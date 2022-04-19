@@ -1,0 +1,6 @@
+if [[ ! ${CONDA_BACKUP_ORACLE_HOME} ]]; then
+  unset ORACLE_HOME
+else
+  export ORACLE_HOME=${CONDA_BACKUP_ORACLE_HOME}
+fi
+unset CONDA_BACKUP_ORACLE_HOME

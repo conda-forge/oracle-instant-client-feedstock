@@ -27,3 +27,6 @@ instantclient-basic-${platformos}.${arch}-${pkgver}${vertail}.zip \
     echo ${CONDA_PREFIX}/lib/$(basename $lib) >> ${CONDA_PREFIX}/oracle_instant_client/instantclient_${uver}/CONDA_LINKS
   done
 fi
+
+export CONDA_BACKUP_ORACLE_HOME=${ORACLE_HOME}
+export ORACLE_HOME=${CONDA_PREFIX}/oracle_instant_client/instantclient_${uver}

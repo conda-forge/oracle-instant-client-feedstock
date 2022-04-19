@@ -21,7 +21,7 @@ instantclient-basic-${platformos}.${arch}-${pkgver}${vertail}.zip \
 
   mkdir -p ${CONDA_PREFIX}/lib
   rm -f ${CONDA_PREFIX}/oracle_instant_client/instantclient_${uver}/CONDA_LINKS
-  for lib in $(ls ${CONDA_PREFIX}/oracle_instant_client/instantclient_${uver}/*${shlibext}); do
+  for lib in $(ls ${CONDA_PREFIX}/oracle_instant_client/instantclient_${uver}/*${shlibext}*); do
     rm -f ${CONDA_PREFIX}/lib/$(basename $lib)
     ln -s $lib ${CONDA_PREFIX}/lib/$(basename $lib)
     echo ${CONDA_PREFIX}/lib/$(basename $lib) >> ${CONDA_PREFIX}/oracle_instant_client/instantclient_${uver}/CONDA_LINKS

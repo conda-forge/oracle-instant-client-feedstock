@@ -1,13 +1,13 @@
 package:
   name: oracle-instant-client
   version: 19.8.0.0.0  # [osx]
-  version: 21.1.0.0.0  # [linux]
+  version: 21.6.0.0.0  # [linux]
 
 source:
   path: .
 
 build:
-  number: 2
+  number: 3
   skip: true  # [not unix]
 
 requirements:

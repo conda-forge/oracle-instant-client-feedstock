@@ -10,7 +10,6 @@ minver=$(echo $pkgver | cut -d'.' -f2)
 uver=${majver}_${minver}
 
 if [ ! -d ${CONDA_PREFIX}/oracle_instant_client/instantclient_${uver} ]; then
-  set -x
   mkdir -p ${CONDA_PREFIX}/oracle_instant_client
   pushd ${CONDA_PREFIX}/oracle_instant_client >& /dev/null
   curl -Ls \

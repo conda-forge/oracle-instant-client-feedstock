@@ -1,11 +1,11 @@
-About oracle-instant-client
-===========================
+About oracle-instant-client-feedstock
+=====================================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/oracle-instant-client-feedstock/blob/main/LICENSE.txt)
 
 Home: https://www.oracle.com/database/technologies/instant-client.html
 
 Package license: BSD-3-Clause
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/oracle-instant-client-feedstock/blob/main/LICENSE.txt)
 
 Summary: package to download and install oracle instant client
 
@@ -30,14 +30,14 @@ Current build status
               <td>linux_64</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=13431&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/oracle-instant-client-feedstock?branchName=main&jobName=linux&configuration=linux_64_" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/oracle-instant-client-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_" alt="variant">
                 </a>
               </td>
             </tr><tr>
               <td>osx_64</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=13431&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/oracle-instant-client-feedstock?branchName=main&jobName=osx&configuration=osx_64_" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/oracle-instant-client-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_" alt="variant">
                 </a>
               </td>
             </tr>
@@ -102,12 +102,6 @@ mamba repoquery whoneeds oracle-instant-client --channel conda-forge
 mamba repoquery depends oracle-instant-client --channel conda-forge
 ```
 
-If you're behind a firewall and unable to download the instant client zip file from download.oracle.com, you can set the environment variable `ORACLE_DOWNLOAD_BASE_URL` to specify where it should look for the corresponding zip file. The zip file must have the same name as found on the oracle website: https://www.oracle.com/database/technologies/instant-client/linux-x86-64-downloads.html
-
-```bash
-export ORACLE_DOWNLOAD_URL=https://my.internal.website/oracle
-conda install oracle-instant-client
-```
 
 About conda-forge
 =================
@@ -127,7 +121,7 @@ available continuous integration services. Thanks to the awesome service provide
 [CircleCI](https://circleci.com/), [AppVeyor](https://www.appveyor.com/),
 [Drone](https://cloud.drone.io/welcome), and [TravisCI](https://travis-ci.com/)
 it is possible to build and upload installable packages to the
-[conda-forge](https://anaconda.org/conda-forge) [Anaconda-Cloud](https://anaconda.org/)
+[conda-forge](https://anaconda.org/conda-forge) [anaconda.org](https://anaconda.org/)
 channel for Linux, Windows and OSX respectively.
 
 To manage the continuous integration and simplify feedstock maintenance

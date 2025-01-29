@@ -9,6 +9,19 @@ Package license: BSD-3-Clause
 
 Summary: package to download and install oracle instant client
 
+This package downloads and installs the Oracle Instant Client. By default, it uses a standard location.
+
+If you're behind a firewall and unable to download the instant client zip file from download.oracle.com,
+you can set the environment variable `ORACLE_DOWNLOAD_BASE_URL` to specify where it should look for the
+corresponding zip file. The zip file must have the same name as found on the oracle website:
+https://www.oracle.com/database/technologies/instant-client/linux-x86-64-downloads.html.
+
+```bash
+export ORACLE_DOWNLOAD_URL=https://my.internal.website/oracle
+conda install oracle-instant-client
+```
+
+
 Current build status
 ====================
 

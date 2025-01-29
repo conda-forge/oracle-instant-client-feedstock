@@ -4,18 +4,19 @@ platform="@PLATFORM@"
 arch="@ARCH@"
 platformos="@OS@"
 vertail="@VERTAIL@"
-aver=$(echo $pkgver | tr -d ".")
+aver="@AVER@"
 majver=$(echo $pkgver | cut -d'.' -f1)
 minver=$(echo $pkgver | cut -d'.' -f2)
 uver=${majver}_${minver}
+oracle_download_base_url=${ORACLE_DOWNLOAD_BASE_URL:-https://download.oracle.com/otn_software/${platform}/instantclient/${aver}}
+oracle_download_url=$oracle_download_base_url/instantclient-basic-${platformos}.${arch}-${pkgver}${vertail}.zip
 
 if [ ! -d ${CONDA_PREFIX}/oracle_instant_client/instantclient_${uver} ]; then
   mkdir -p ${CONDA_PREFIX}/oracle_instant_client
   pushd ${CONDA_PREFIX}/oracle_instant_client >& /dev/null
-  curl -Ls \
-https://download.oracle.com/otn_software/${platform}/instantclient/${aver}/\
-instantclient-basic-${platformos}.${arch}-${pkgver}${vertail}.zip \
-    > ${CONDA_PREFIX}/oracle_instant_client/instantclient-basic-${platformos}.${arch}-${pkgver}${vertail}.zip
+  echo "Downloading instantclient from $oracle_download_url"
+  curl -Ls $oracle_download_url > ${CONDA_PREFIX}/oracle_instant_client/instantclient-basic-${platformos}.${arch}-${pkgver}${vertail}.zip
+  file instantclient-basic-${platformos}.${arch}-${pkgver}${vertail}.zip
   unzip -qq instantclient-basic-${platformos}.${arch}-${pkgver}${vertail}.zip
   popd >& /dev/null
 

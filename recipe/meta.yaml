@@ -1,7 +1,6 @@
 package:
   name: oracle-instant-client
-  version: 19.8.0.0.0  # [osx]
-  version: 23.7.0.25.01  # [linux]
+  version: {{ '19.8.0.0.0' if osx else '23.7.0.25.01' }}
 
 source:
   path: .

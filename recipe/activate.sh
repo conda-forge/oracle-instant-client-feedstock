@@ -16,7 +16,6 @@ if [ ! -d ${CONDA_PREFIX}/oracle_instant_client/instantclient_${uver} ]; then
   pushd ${CONDA_PREFIX}/oracle_instant_client >& /dev/null
   echo "Downloading instantclient from $oracle_download_url"
   curl -Ls $oracle_download_url > ${CONDA_PREFIX}/oracle_instant_client/instantclient-basic-${platformos}.${arch}-${pkgver}${vertail}.zip
-  file instantclient-basic-${platformos}.${arch}-${pkgver}${vertail}.zip
   unzip -qq instantclient-basic-${platformos}.${arch}-${pkgver}${vertail}.zip
   popd >& /dev/null
 

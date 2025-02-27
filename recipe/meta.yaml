@@ -13,7 +13,7 @@ requirements:
   host:
   run:
     - curl
-    - libaio
+    - libaio  # [linux]
     - unzip
     - __glibc >=2.28  # [linux]
 

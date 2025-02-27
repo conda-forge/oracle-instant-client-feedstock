@@ -17,7 +17,7 @@ corresponding zip file. The zip file must have the same name as found on the ora
 https://www.oracle.com/database/technologies/instant-client/linux-x86-64-downloads.html.
 
 ```bash
-export ORACLE_DOWNLOAD_URL=https://my.internal.website/oracle
+export ORACLE_DOWNLOAD_BASE_URL=https://my.internal.website/oracle
 conda install oracle-instant-client
 ```
 

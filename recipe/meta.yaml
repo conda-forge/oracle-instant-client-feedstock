@@ -6,7 +6,7 @@ source:
   path: .
 
 build:
-  number: 5
+  number: 6
   skip: true  # [not unix]
 
 requirements:
@@ -36,7 +36,7 @@ about:
     https://www.oracle.com/database/technologies/instant-client/linux-x86-64-downloads.html.
 
     ```bash
-    export ORACLE_DOWNLOAD_URL=https://my.internal.website/oracle
+    export RACLE_DOWNLOAD_BASE_URL=https://my.internal.website/oracle
     conda install oracle-instant-client
     ```  
 

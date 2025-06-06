@@ -55,7 +55,7 @@ elif [[ ${target_platform} == linux-64 ]]; then
     cp tmp_extract/instantclient_23_8/libocci.so.20.1 $PREFIX/lib/
     cp tmp_extract/instantclient_23_8/libociei.so $PREFIX/lib/
     cp tmp_extract/instantclient_23_8/libtfojdbc1.so $PREFIX/lib/
-    cp tmp_extract/instantclient_23_8/network $PREFIX/lib/
+    cp -r tmp_extract/instantclient_23_8/network $PREFIX/lib/
     cp tmp_extract/instantclient_23_8/ojdbc11.jar $PREFIX/lib/
     cp tmp_extract/instantclient_23_8/ojdbc17.jar $PREFIX/lib/
     cp tmp_extract/instantclient_23_8/ojdbc8.jar $PREFIX/lib/
@@ -73,8 +73,7 @@ elif [[ ${target_platform} == linux-aarch64 ]]; then
 
     # Copy libs to target folder
     echo "it's copying!"
-    #export PREFIX=${CONDA_PREFIX}
-    echo "prefix is: $PREFIX"
+
     cp tmp_extract/instantclient_23_8/libclntshcore.so $PREFIX/lib/
     cp tmp_extract/instantclient_23_8/libclntshcore.so.12.1 $PREFIX/lib/
     cp tmp_extract/instantclient_23_8/libclntshcore.so.18.1 $PREFIX/lib/
@@ -120,13 +119,11 @@ elif [[ ${target_platform} == linux-aarch64 ]]; then
     cp tmp_extract/instantclient_23_8/uidrvci $PREFIX/lib/
     cp tmp_extract/instantclient_23_8/xstreams.jar $PREFIX/lib/
 
-    cp tmp_extract/instantclient_23_8/network $PREFIX/lib/libclntsh.so.23.1
+    cp -r tmp_extract/instantclient_23_8/network $PREFIX/lib/
 
-    patchelf --set-rpath ../lib $PREFIX/lib/libclntsh.so.23.1
+    #patchelf --set-rpath ../lib $PREFIX/lib/libclntsh.so.23.1
 
     echo "copied!"
     echo "========================"
-    echo "LISING FILES"
-    ls $PREFIX/lib/
 fi
 

@@ -3,7 +3,7 @@ package:
   version: {{ '19.8.0.0.0' if osx else '23.7.0.25.01' }}
 
 source:
-  path: tmpfiles/instantclient-basic-linux.arm64-23.8.0.25.04.zip
+  path: instantclient-basic-linux.arm64-23.8.0.25.04.zip
 
 build:
   binary_relocation: false
@@ -14,18 +14,12 @@ build:
     - /lib64/libm.so.6  # [linux]
     - /lib64/libpthread.so.0  # [linux]
     - /lib64/librt.so.1  # [linux]
-    - $RPATH/libaio.so.1  # [linux]
     - /lib64/libresolv.so.2  # [linux]
     - /lib64/libc.so.6  # [linux]
     - /lib64/ld-linux-x86-64.so.2  # [linux]
-
     - /lib64/libstdc++.so.6  # [linux and aarch64]
     - /lib64/libgcc_s.so.1  # [linux and aarch64]
-    - $RPATH/libnnz.so  # [linux and aarch64]
-    - $RPATH/libclntshcore.so.23.1  # [linux and aarch64]
-    - $RPATH/libclntsh.so.23.1  # [linux and aarch64]
 
-    # Only for older conda-build (<25)
     - $RPATH/libdl.so.2  # [linux]
     - $RPATH/libm.so.6  # [linux]
     - $RPATH/libpthread.so.0  # [linux]
@@ -33,8 +27,10 @@ build:
     - $RPATH/libresolv.so.2  # [linux]
     - $RPATH/libc.so.6  # [linux]
     - $RPATH/ld-linux-x86-64.so.2  # [linux]
-    - $RPATH/libstdc++.so.6  # [linux and aarch64]
-    - $RPATH/libgcc_s.so.1  # [linux and aarch64]
+    - $RPATH/libstdc++.so.6  # [linux]
+    - $RPATH/libgcc_s.so.1  # [linux]
+
+    - $RPATH/libaio.so.1  # [linux]
 
   ignore_run_exports:
     - libaio
@@ -44,7 +40,7 @@ requirements:
     - unzip
   host:
     - libaio {{ libaio }}  # [linux]
-    - patchelf  # [linux]
+    # - patchelf  # [linux]
   run:
     - curl
     - libaio  # [linux]
@@ -59,6 +55,7 @@ test:
     - python
     - oracledb
     - pytest
+    - patchelf
   commands:
     - echo "It works!"
     #- test -f ${PREFIX}/oracle_instant_client/instantclient_*/CONDA_LINKS

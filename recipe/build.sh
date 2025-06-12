@@ -123,6 +123,23 @@ elif [[ ${target_platform} == linux-aarch64 ]]; then
 
     #patchelf --set-rpath ../lib $PREFIX/lib/libclntsh.so.23.1
 
+    echo "cwd is: $PWD"
+
+    patchelf --set-rpath '$ORIGIN/../lib' $PREFIX/lib/libnnz.so
+    patchelf --set-rpath '$ORIGIN/../lib' $PREFIX/lib/libclntsh.so
+    patchelf --set-rpath '$ORIGIN/../lib' $PREFIX/lib/libclntsh.so.10.1
+    patchelf --set-rpath '$ORIGIN/../lib' $PREFIX/lib/libclntsh.so.11.1
+    patchelf --set-rpath '$ORIGIN/../lib' $PREFIX/lib/libclntsh.so.12.1
+    patchelf --set-rpath '$ORIGIN/../lib' $PREFIX/lib/libclntsh.so.18.1
+    patchelf --set-rpath '$ORIGIN/../lib' $PREFIX/lib/libclntsh.so.19.1
+    patchelf --set-rpath '$ORIGIN/../lib' $PREFIX/lib/libclntsh.so.20.1
+    patchelf --set-rpath '$ORIGIN/../lib' $PREFIX/lib/libclntsh.so.21.1
+    patchelf --set-rpath '$ORIGIN/../lib' $PREFIX/lib/libclntsh.so.22.1
+    patchelf --set-rpath '$ORIGIN/../lib' $PREFIX/lib/libclntsh.so.23.1
+    patchelf --set-rpath '$ORIGIN/../lib' $PREFIX/lib/libocijdbc23.so
+    patchelf --set-rpath '$ORIGIN/../lib' $PREFIX/lib/libociei.so
+    patchelf --set-rpath '$ORIGIN/../lib' $PREFIX/lib/uidrvci
+
     echo "copied!"
     echo "========================"
 fi

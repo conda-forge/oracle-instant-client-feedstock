@@ -1,6 +1,6 @@
 package:
   name: oracle-instant-client
-  version: {{ '19.8.0.0.0' if osx else '23.7.0.25.01' }}
+  version: {{ '19.16.0.0.0' if osx else '23.8.0.25.04' }}
 
 source:
   path: instantclient-basic-linux.arm64-23.8.0.25.04.zip
@@ -9,6 +9,8 @@ build:
   binary_relocation: false
   number: 6
   skip: true  # [not unix]
+  runpath_whitelist:
+    - ../lib
   missing_dso_whitelist:
     - /lib64/libdl.so.2  # [linux]
     - /lib64/libm.so.6  # [linux]
@@ -46,6 +48,7 @@ requirements:
     - libaio  # [linux]
     - unzip
     - __glibc >=2.28  # [linux]
+    - libgcc-ng >=11.2.0 # [linux]
     - openjdk
 test:
   files:
@@ -58,10 +61,17 @@ test:
     - patchelf
   commands:
     - echo "It works!"
-    #- test -f ${PREFIX}/oracle_instant_client/instantclient_*/CONDA_LINKS
-    - patchelf --set-rpath $CONDA_PREFIX/lib tests/cdemo81
-    - tests/cdemo81
-#    - pytest -vv tests/test.py
+#    - echo "testing with python!"
+#    - python tests/test.py
+#    - echo "tested with python!"
+#    - test -f ${PREFIX}/oracle_instant_client/instantclient_*/CONDA_LINKS
+#    - patchelf --set-rpath $CONDA_PREFIX/lib tests/cdemo81
+#    - echo "ldLibPath is $LD_LIBRARY_PATH"
+#    - patchelf --set-rpath '$ORIGIN/../lib' tests/cdemo81
+#    - tests/cdemo81
+    - echo "CONDA_PREFIX is $CONDA_PREFIX"
+    - echo "PREFIX is $PREFIX"
+    - pytest -vv -s tests/test.py
 
 about:
   home: https://www.oracle.com/database/technologies/instant-client.html

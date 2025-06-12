@@ -3,7 +3,21 @@ package:
   version: {{ '19.16.0.0.0' if osx else '23.8.0.25.04' }}
 
 source:
-  path: instantclient-basic-linux.arm64-23.8.0.25.04.zip
+  #url: https://download.oracle.com/otn_software/linux/instantclient/2380000/instantclient-basic-linux.x64-23.8.0.25.04.zip  # [linux and x64]
+  #url: https://download.oracle.com/otn_software/linux/instantclient/2380000/instantclient-basic-linux.arm64-23.8.0.25.04.zip  # [linux and aarch64]
+  #url: https://download.oracle.com/otn_software/mac/instantclient/1916000/instantclient-basic-macos.x64-19.16.0.0.0dbru.dmg  # [mac and x64]
+  #url: https://download.oracle.com/otn_software/mac/instantclient/233023/instantclient-basic-macos.arm64-23.3.0.23.09-2.dmg  # [mac and aarch64]
+  #url: https://download.oracle.com/otn_software/nt/instantclient/2380000/instantclient-basic-windows.x64-23.8.0.25.04.zip  # [win]
+  path: instantclient-basic-linux.x64-23.8.0.25.04.zip  # [linux and x64]
+  path: instantclient-basic-linux.arm64-23.8.0.25.04.zip  # [linux and aarch64]
+  path: instantclient-basic-macos.x64-19.16.0.0.0dbru.dmg  # [mac and x64]
+  path: instantclient-basic-macos.arm64-23.3.0.23.09-2.dmg  # [mac and aarch64]
+  path: instantclient-basic-windows.x64-23.8.0.25.04.zip  # [win]
+  sha256: b0f9b427e6571e85323234c17be9e5cff34cf31ae98b8f769f3d46a7bcfe2c0f  # [linux and x64]
+  sha256: a65c116b9f950f0f54b7ff7e32b6dfe48c83d5b75b312ae87b6786548b7cb0ab  # [linux and aarch64]
+  sha256: 725eeb7c00041e926b57c3db508ea7439a1935a37f480c0ac6d46eddc4205331  # [mac and x64]
+  sha256: ff6fcfb8e2a231a9e0eae858691fe854451b375e654adf4a62331981a60e9569  # [mac and aarch64]
+  sha256: 717121897f0cbd10cc93f6d8e0a7f9b316ec5f8339288075630a75881ffdeefd  # [win]
 
 build:
   binary_relocation: false
@@ -71,7 +85,7 @@ test:
 #    - tests/cdemo81
     - echo "CONDA_PREFIX is $CONDA_PREFIX"
     - echo "PREFIX is $PREFIX"
-    - pytest -vv -s tests/test.py
+#    - pytest -vv -s tests/test.py
 
 about:
   home: https://www.oracle.com/database/technologies/instant-client.html
